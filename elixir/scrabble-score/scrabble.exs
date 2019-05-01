@@ -16,7 +16,7 @@ defmodule Scrabble do
     letters = word
             |> String.replace(~r/[\s\d\W]/, "")  # remove non-letters
             |> String.downcase
-            |> String.grapheme      # make into a list of letters even extended ascii
+            |> String.graphemes     # make into a list of letters even extended ascii
             # |> String.codepoints  # fails with é (this is 2 codepoints)
     Enum.reduce(letters, 0, fn x, acc -> @scores[x] + acc end)
   end
